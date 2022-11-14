@@ -52,9 +52,9 @@ public class Memo1BankApp {
 		return accountService.getAccounts();
 	}
 
-	@GetMapping("/accounts/Transactions")
-	public Collection<Transaction> getTransactions() {
-		return transactionService.getTransactions();
+	@GetMapping("/accounts/{cbu}/Transactions")
+	public Collection<Transaction> getTransactions(@PathVariable Long cbu) {
+		return transactionService.getTransactions(cbu);
 	}
 
 	@GetMapping("/accounts/Transactions/{id}")

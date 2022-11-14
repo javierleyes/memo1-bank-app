@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.Collection;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TransactionService {
@@ -42,8 +43,10 @@ public class TransactionService {
         return transactionRepository.save(transaction);
     }
 
-    public Collection<Transaction> getTransactions() {
-        return transactionRepository.findAll();
+    public Collection<Transaction> getTransactions(Long cbu) {
+        return transactionRepository.findAll().stream()
+                    .filter(x -> x.getCBU() == cbu)
+                    .collect(Collectors.toList());
     }
 
     public Optional<Transaction> findById(Long id) {
