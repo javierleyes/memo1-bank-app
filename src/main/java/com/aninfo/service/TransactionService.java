@@ -35,7 +35,17 @@ public class TransactionService {
             throw new DepositNegativeSumException("Cannot deposit anything");
         }
 
-        Double newBalance = account.getBalance() + transaction.getAmount();
+        Double promo = Double.valueOf(0);
+
+        if (transaction.getAmount() >= 2000) {
+            promo = (10 * transaction.getAmount() / 100);
+
+            if (promo >= 500) {
+                promo = Double.valueOf(500);
+            }
+        }
+
+        Double newBalance = account.getBalance() + transaction.getAmount() + promo;
 
         account.setBalance(newBalance);
         accountRepository.save(account);
