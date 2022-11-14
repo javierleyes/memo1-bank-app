@@ -24,10 +24,8 @@ public class Transaction {
     }
 
     public Double getAmount() { return this.amount; }
+
     public Long getCBU() { return this.cbu; }
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getId() {
         return this.id;
