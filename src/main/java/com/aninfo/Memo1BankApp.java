@@ -41,15 +41,20 @@ public class Memo1BankApp {
 		return accountService.createAccount(account);
 	}
 
-	@PostMapping("/accounts/accountCBU/Transactions")
+	@PostMapping("/accounts/{cbu}/Transactions")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Transaction createTransaction(@RequestBody Transaction transaction) {transactionService = {TransactionService$$EnhancerBySpringCGLIB$$94c9e13f@10912} "com.aninfo.service.TransactionService@37c45154"
+	public Transaction createTransaction(@RequestBody Transaction transaction) {
 		return transactionService.createTransaction(transaction);
 	}
 
 	@GetMapping("/accounts")
 	public Collection<Account> getAccounts() {
 		return accountService.getAccounts();
+	}
+
+	@GetMapping("/accounts/Transactions")
+	public Collection<Transaction> getTransactions() {
+		return transactionService.getTransactions();
 	}
 
 	@GetMapping("/accounts/{cbu}")
@@ -73,6 +78,11 @@ public class Memo1BankApp {
 	@DeleteMapping("/accounts/{cbu}")
 	public void deleteAccount(@PathVariable Long cbu) {
 		accountService.deleteById(cbu);
+	}
+
+	@DeleteMapping("/accounts/{cbu}/Transactions/{id}")
+	public void deleteTransacion(@PathVariable Long id) {
+		transactionService.deleteById(id);
 	}
 
 	@PutMapping("/accounts/{cbu}/withdraw")

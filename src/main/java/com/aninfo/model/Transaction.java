@@ -17,11 +17,19 @@ public class Transaction {
 
     }
 
-    public Transaction(Double amount, Long cbu) {
+    public Transaction(Double amount, Long cbu, Long id) {
         this.amount = amount;
         this.cbu = cbu;
+        this.id = id;
     }
 
     public Double getAmount() { return this.amount; }
     public Long getCBU() { return this.cbu; }
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
 }

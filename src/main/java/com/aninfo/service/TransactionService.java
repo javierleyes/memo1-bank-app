@@ -41,7 +41,9 @@ public class TransactionService {
         return transactionRepository.save(transaction);
     }
 
-    public Collection<Transaction> getTransactions() { return transactionRepository.findAll(); }
+    public Collection<Transaction> getTransactions() {
+        return transactionRepository.findAll();
+    }
 
 //    public Optional<List<Transaction>> findById(Long cbu) {
 //        return transactionRepository.findById(cbu);
