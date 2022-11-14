@@ -57,6 +57,11 @@ public class Memo1BankApp {
 		return transactionService.getTransactions();
 	}
 
+	@GetMapping("/accounts/Transactions/{id}")
+	public Optional<Transaction> getTransaction(@PathVariable Long id) {
+		return transactionService.findById(id);
+	}
+
 	@GetMapping("/accounts/{cbu}")
 	public ResponseEntity<Account> getAccount(@PathVariable Long cbu) {
 		Optional<Account> accountOptional = accountService.findById(cbu);

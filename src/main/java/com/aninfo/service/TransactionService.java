@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Collection;
+import java.util.Optional;
 
 @Service
 public class TransactionService {
@@ -45,9 +46,10 @@ public class TransactionService {
         return transactionRepository.findAll();
     }
 
-//    public Optional<List<Transaction>> findById(Long cbu) {
-//        return transactionRepository.findById(cbu);
-//    }
+    public Optional<Transaction> findById(Long id) {
+        return transactionRepository.findById(id);
+    }
+
 
     public void deleteById(Long transactionId) {
         transactionRepository.deleteById(transactionId);
